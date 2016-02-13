@@ -21,5 +21,5 @@ if ($connecte == false) {
     <h3> Vous êtes déjà connecté ! Création de compte impossible !</h3>
     <?php
 }
-include('includes/footer.inc.php');
+include('includes/footer.inc.php'); 
 ?>
