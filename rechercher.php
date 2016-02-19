@@ -5,14 +5,18 @@ include('includes/verif_util.inc.php');
 
 if(isset($_POST['search'])){
 
- 		$search = mysql_real_escape_string($_POST['search']);
+ 		$search = explode(" ",mysql_real_escape_string($_POST['search']));
      
 
-        $res = mysql_query("SELECT * FROM articles WHERE contenu LIKE '%$search%' OR titre LIKE '%$search%' ");
-            
 
-
-     
+$i=0;
+$req = "SELECT * FROM articles WHERE contenu LIKE '%$search[$i]%' OR titre LIKE '%search[$i]%'  ";
+$like="";
+while($i<count($search)){
+$like.=" OR contenu LIKE '%search[$i+1]%' OR titre LIKE '%search[$i+1]%' ";
+$i++;
+}
+        $res = mysql_query($req.$like);            
  if (mysql_num_rows($res) > 0) {
           
 
