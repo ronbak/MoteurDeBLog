@@ -1,1 +1,15 @@
-README
+***README***
+
+Moteur de Blog est comme sont nom l'indique un moteur de blog.
+Celui-ci comporte différentes fonctionalitées.
+Sur la page d'acceuil nous voyons tous les articles de se blog, ces derniers son éditable si un utilisateur s'inscrie.
+Une section est donc prévue pour s'inscrire en y mettant les information suivante : nom, prenom, mot de passe et adresse e-mail.
+Une fois connecter nous pouvons soit ajouter soit supprimer un article.
+Hors-connection, nous pouvons tout de même recherche un ou plusieur article en fonction de différents mots clés.
+Lorsque l'on est connecter nous pouvons également nous déconnecter, et écrire un ou plusieurs articles.
+La connection s'effectue avec un cookie est une base de donnée.
+Tout les données du blog son hebergé sur une base de donnée Mysql avec un accés phpmyadmin.
+
+Hébergeur en ligne : Hostinger
+Adresse du blog: http://moteurblogdevphp.890m.com
+
