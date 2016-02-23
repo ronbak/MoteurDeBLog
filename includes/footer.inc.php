@@ -1,9 +1,14 @@
+<script src="assets/js/jquery-1.8.2.js"></script>
 </div>
+
+
 <nav class="span4">
     <h2>Menu</h2>
 
-    <ul>
+    <ul >
+   
         <li><a href="index.php">Accueil</a></li>
+        
 
 
         <?php
@@ -21,6 +26,13 @@
         <?php }
 
         ?>
+         <form action="rechercher.php" method="Post">
+
+        <input style="width:90px;height:13px;"type="text" name="search" size="10">
+
+        <input type="submit" value="Search">
+
+        </form>
     </ul>
 
 </nav>
@@ -34,6 +46,27 @@
 </footer>
 
 </div>
+
+
+    
+<script type="text/javascript">
+
+     $(document).ready(function() {
+
+        $('ul').hide();
+
+        $('.span4').mouseenter(function(){
+$('ul').slideDown(150);
+
+});
+        $('.span4').mouseleave(function(){
+$('ul').slideUp(150);
+
+});
+
+        });
+
+</script>
 
 </body>
 </html>
