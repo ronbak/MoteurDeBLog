@@ -15,7 +15,7 @@ if(isset($_GET['email'])){  //si il y a un email
 		mysql_query($sql);
 		echo('OK'); //réussite
 	}else{
-		echo("déjà abonné"); //déja abonné
+		echo("Déjà abonné"); //déja abonné
 	}
 
 

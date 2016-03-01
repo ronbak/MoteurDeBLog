@@ -6,7 +6,7 @@
     <h2>Menu</h2>
 
     <ul >
-   
+
         <li><a href="index.php">Accueil</a></li>
         
 
@@ -23,25 +23,25 @@
             <li><a href="connexion.php">Connexion</a></li>
             <li><a href="inscription.php">Inscription</a></li>
 
-        <?php }
+            <?php }
 
-        ?>
-         <form action="rechercher.php" method="Post">
+            ?>
+            <form action="rechercher.php" method="Post">
 
-        <input style="width:90px;height:13px;"type="text" name="search" size="10">
+                <input style="width:90px;height:13px;"type="text" name="search" size="10">
 
-        <input type="submit" class="btn btn-primary" value="Search">
+                <input type="submit" class="btn btn-primary" value="Search">
 
-        </form>
+            </form>
 
-        <input style="width:90px;height:13px;"type="email" id="abo" size="10">
+            <input style="width:90px;height:13px;"type="email" id="abo" size="10">
 
-        <button id="submit" class="btn btn-primary"> Abonnement</button>
+            <button id="submit" class="btn btn-primary"> Abonnement</button>
+            <label id="retour" value=""></label>
 
+        </ul>
 
-    </ul>
-
-</nav>
+    </nav>
 </div>
 
 </div>
@@ -54,41 +54,41 @@
 </div>
 
 <script>
-      $(function() {
+  $(function() {
         $('#submit').click(function() { //au click du bouton abonement lance le script php avec l'email en parametre
           $.ajax({
             type: 'GET', //methode de transfert 
             url: 'newsletter.php', //page du script 
             data:  'email=' + $('#abo').val(), //email
            success: function(response){ //affiche le type de retour si succé ou non
-                    alert(response);
-                    
-                }
+            $("#retour").text(response);
 
-        });  
+        }
+
+    });  
           $('#abo').val('');
       });
     });
 </script>
 
 
-    
+
 <script type="text/javascript">
 
-     $(document).ready(function() {
+   $(document).ready(function() {
 
-        $('ul').hide();
+    $('ul').hide();
 
-        $('.span4').mouseenter(function(){
-$('ul').slideDown(150);
+    $('.span4').mouseenter(function(){
+        $('ul').slideDown(150);
+
+    });
+    $('.span4').mouseleave(function(){
+        $('ul').slideUp(150);
+
+    });
 
 });
-        $('.span4').mouseleave(function(){
-$('ul').slideUp(150);
-
-});
-
-        });
 
 </script>
 
