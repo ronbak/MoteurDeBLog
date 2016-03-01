@@ -3,19 +3,19 @@ include('includes/connexion.inc.php');
 
 
 
-if(isset($_GET['email'])){
+if(isset($_GET['email'])){  //si il y a un email
 
 	$email = $_GET['email'];
-	$res = mysql_query('SELECT * FROM newsletter WHERE email = "'.$email.'"');
+	$res = mysql_query('SELECT * FROM newsletter WHERE email = "'.$email.'"'); //on vérifie si il existe 
 	$data = mysql_fetch_array($res);
 
 	if(!$data){
 
-		$sql = "INSERT INTO newsletter ( `email`) VALUES ('$email'); ";
+		$sql = "INSERT INTO newsletter ( `email`) VALUES ('$email'); "; //on l'insert 
 		mysql_query($sql);
-		echo('OK');
+		echo('OK'); //réussite
 	}else{
-		echo("déjà abonné");
+		echo("déjà abonné"); //déja abonné
 	}
 
 
@@ -23,6 +23,6 @@ if(isset($_GET['email'])){
 }
 else{
 
-	echo "ko";
+	echo "ko"; //erreur
 }
 ?>

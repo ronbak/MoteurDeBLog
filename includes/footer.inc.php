@@ -55,14 +55,14 @@
 
 <script>
       $(function() {
-        $('#submit').click(function() {
+        $('#submit').click(function() { //au click du bouton abonement lance le script php avec l'email en parametre
           $.ajax({
-            type: 'GET',
-            url: 'newsletter.php',
-            data:  'email=' + $('#abo').val(),
-           success: function(response){
+            type: 'GET', //methode de transfert 
+            url: 'newsletter.php', //page du script 
+            data:  'email=' + $('#abo').val(), //email
+           success: function(response){ //affiche le type de retour si succé ou non
                     alert(response);
-                    //echo what the server sent back...
+                    
                 }
 
         });  
