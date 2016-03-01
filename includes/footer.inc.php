@@ -34,14 +34,19 @@
 
             </form>
 
-            <input style="width:90px;height:13px;"type="email" id="abo" size="10">
+            <div id="alert" >
+              <button id="closeAlert" type="button" class="close" data-dismiss="alert">&times;</button>
+              <span id="retour"></span> 
+          </div>
 
-            <button id="submit" class="btn btn-primary"> Abonnement</button>
-            <label id="retour" value=""></label>
+          <input style="width:90px;height:13px;"type="email" id="abo" size="10">
 
-        </ul>
+          <button id="submit" class="btn btn-primary"> Abonnement</button>
 
-    </nav>
+
+      </ul>
+
+  </nav>
 </div>
 
 </div>
@@ -54,29 +59,36 @@
 </div>
 
 <script>
-  $(function() {
-        $('#submit').click(function() { //au click du bouton abonement lance le script php avec l'email en parametre
-          $.ajax({
-            type: 'GET', //methode de transfert 
-            url: 'newsletter.php', //page du script 
-            data:  'email=' + $('#abo').val(), //email
-           success: function(response){ //affiche le type de retour si succé ou non
-            $("#retour").text(response);
+  $(document).ready(function() {
+    $('#closeAlert').click(function(){ //si on click sur la croix de l'alert alors elle se ferme
 
-        }
+       $('#alert').slideUp(150);
+   });
 
-    });  
-          $('#abo').val('');
-      });
-    });
+
+
+    $('#submit').click(function() { //validation de l'emailpour newsletter au click
+     appelNewsletter();
+
+ });
+
+    $('#abo').keypress(function(event) { //validation de l'emailpour newsletter avec la touche entré
+        var key = (event.keyCode ? event.keyCode : event.which);
+        if(key == '13'){
+          appelNewsletter();
+          
+      }
+      event.stopPropagation();
+  });
+});
 </script>
 
 
 
 <script type="text/javascript">
 
-   $(document).ready(function() {
-
+   $(document).ready(function() {  //fonction d'affichage et disparition du menu
+    $('#alert').hide();
     $('ul').hide();
 
     $('.span4').mouseenter(function(){
@@ -89,6 +101,62 @@
     });
 
 });
+
+</script>
+
+<script>
+
+    function appelNewsletter(){ //envoie les information a newsletter.php
+     $.ajax({ 
+        type: 'GET', //methode 
+        url: 'newsletter.php', //url de la page 
+        data:  'email=' + $('#abo').val(), //email de l'utilisateur
+        success: function(responce){ //récupére la réponse 
+           showAlert(responce); //lance le message d'alert si succéou non
+       }
+
+
+   });  
+     $('#abo').val(''); //vide le champ email
+ }
+
+ function showAlert(retour){ //affiche l'alert correspondant au message de retour de newsletter.php
+
+
+    $('#alert').removeClass();
+
+    if(retour=="invalide"){ //si le message est : invalide
+
+        $('#alert').addClass('alert alert-error'); //affiche rouge 
+        $('#retour').text(" Email invalide !");
+    }
+
+    if(retour=="OK"){ //si le message est : ok
+
+
+        $('#alert').addClass('alert alert-success'); // affiche vert
+        $('#retour').text("Vous êtes abonné !");
+    }
+
+    if(retour=="dejaabonne"){
+
+        $('#alert').addClass('alert alert-info');//si le message est : deja abonné
+
+        $('#retour').text("Vous êtes déjà abonné !"); //affiche bleu
+    }
+
+    if(retour=="ko"){
+
+        $('#alert').addClass('alert alert-error'); //si le message est : ko
+
+        $('#retour').text("Fatal Error"); //affiche rouge
+
+
+    }
+    $('#alert').slideDown(150); // affiche la div de l'alert
+
+}
+
 
 </script>
 
