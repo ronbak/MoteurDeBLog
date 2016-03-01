@@ -59,10 +59,14 @@
           $.ajax({
             type: 'GET',
             url: 'newsletter.php',
-            data:  'email=' + $('#abo').val()
-           
+            data:  'email=' + $('#abo').val(),
+           success: function(response){
+                    alert(response);
+                    //echo what the server sent back...
+                }
 
         });  
+          $('#abo').val('');
       });
     });
 </script>
