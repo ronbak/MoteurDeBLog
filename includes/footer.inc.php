@@ -30,9 +30,15 @@
 
         <input style="width:90px;height:13px;"type="text" name="search" size="10">
 
-        <input type="submit" value="Search">
+        <input type="submit" class="btn btn-primary" value="Search">
 
         </form>
+
+        <input style="width:90px;height:13px;"type="email" id="abo" size="10">
+
+        <button id="submit" class="btn btn-primary"> Abonnement</button>
+
+
     </ul>
 
 </nav>
@@ -46,6 +52,20 @@
 </footer>
 
 </div>
+
+<script>
+      $(function() {
+        $('#submit').click(function() {
+          $.ajax({
+            type: 'GET',
+            url: 'newsletter.php',
+            data:  'email=' + $('#abo').val()
+           
+
+        });  
+      });
+    });
+</script>
 
 
     
