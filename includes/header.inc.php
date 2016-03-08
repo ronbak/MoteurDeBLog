@@ -31,7 +31,7 @@ and open the template in the editor.
                 <small> LP DIM</small>
             </h1>
         </div>
-
+        <?php include("slideShow.php") ?>
         <div class="row">
 
             <div class="span8">
