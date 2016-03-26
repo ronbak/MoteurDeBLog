@@ -5,7 +5,7 @@
 <nav class="span4">
     <h2>Menu</h2>
 
-    <ul >
+    <ul class="ulMenu">
 
         <li><a href="index.php">Accueil</a></li>
         
@@ -89,14 +89,14 @@
 
    $(document).ready(function() {  //fonction d'affichage et disparition du menu
     $('#alert').hide();
-    $('ul').hide();
+    $('.ulMenu').hide();
 
     $('.span4').mouseenter(function(){
-        $('ul').slideDown(150);
+        $('.ulMenu').slideDown(150);
 
     });
     $('.span4').mouseleave(function(){
-        $('ul').slideUp(150);
+        $('.ulMenu').slideUp(150);
 
     });
 
