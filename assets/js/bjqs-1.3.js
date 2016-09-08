@@ -111,7 +111,7 @@
                 conf_static();
             }
 
-            // configurations only avaliable if more than 1 slide
+            // configurations only available if more than 1 slide
             if( state.slidecount > 1 ){
 
                 // enable random start
