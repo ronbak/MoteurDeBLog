@@ -72,8 +72,8 @@ function test(id,ip){
         type: 'GET', //methode 
         url: 'jaime.php', //url de la page 
         data:  'id=' + id+ '&ip=' + ip, //email de l'utilisateur
-        success: function(responce){ //récupére la réponse 
-          resultat(responce,id); //lance le message d'alert si succéou non
+        success: function(response){ //récupére la réponse 
+          resultat(response,id); //lance le message d'alert si succéou non
        }
    });
     

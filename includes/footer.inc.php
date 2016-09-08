@@ -111,8 +111,8 @@
         type: 'GET', //methode 
         url: 'newsletter.php', //url de la page 
         data:  'email=' + $('#abo').val(), //email de l'utilisateur
-        success: function(responce){ //récupére la réponse 
-           showAlert(responce); //lance le message d'alert si succéou non
+        success: function(response){ //récupére la réponse 
+           showAlert(response); //lance le message d'alert si succéou non
        }
 
 
