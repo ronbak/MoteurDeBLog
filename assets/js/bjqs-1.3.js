@@ -153,7 +153,7 @@
                 conf_captions();
             }
 
-            // TODO: need to accomodate random start for slide transition setting
+            // TODO: need to accommodate random start for slide transition setting
             if(settings.animtype === 'slide' && !settings.randomstart){
                 state.currentindex = 1;
                 state.currentslide = 2;
@@ -377,7 +377,7 @@
                     'position'  : 'relative'
                 });
 
-                // update the dimensions to the slider to accomodate all the slides side by side
+                // update the dimensions to the slider to accommodate all the slides side by side
                 $slider.css({
                     'width'     : responsive.width * (state.slidecount + 2),
                     'left'      : -responsive.width * state.currentslide
@@ -393,7 +393,7 @@
                     'position'  : 'relative'
                 });
 
-                // update the dimensions to the slider to accomodate all the slides side by side
+                // update the dimensions to the slider to accommodate all the slides side by side
                 $slider.css({
                     'width'     : settings.width * (state.slidecount + 2),
                     'left'      : -settings.width * state.currentslide
