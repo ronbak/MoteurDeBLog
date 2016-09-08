@@ -364,7 +364,7 @@
             $slides             = $slider.children('li');
             state.slidecount    = $slides.length;
 
-            // create a 'canvas' element which is neccessary for the slide animation to work
+            // create a 'canvas' element which is necessary for the slide animation to work
             $canvas = $('<div class="bjqs-wrapper"></div>');
 
             // if the slider is responsive && the calculated width is less than the max width
